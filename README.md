@@ -1,112 +1,86 @@
-# PromptCraft AI - Smart Prompt Builder
+# PromptCraft AI 🚀
+### Smart Prompt Builder & Optimizer
 
-PromptCraft AI is a full-stack web application that turns basic user prompts into structured, professional prompts using prompt engineering.
+**PromptCraft AI** is a full-stack web application designed to bridge the gap between basic ideas and high-quality AI outputs. By leveraging professional prompt engineering frameworks (Role-Task-Constraint-Format), it transforms simple user inputs into structured, actionable, and professional prompts.
 
-## Features
+![PromptCraft AI Dashboard](screenshots/dashboard.png)
 
-- Prompt Improver (`Role + Task + Constraints + Format`)
-- Prompt Analyzer (finds missing clarity, role, constraints, and format)
-- Prompt Templates (Resume, Coding, AI Projects, Business Ideas)
-- Prompt History (last 10 entries in `localStorage` with timestamp)
-- Before vs After Comparison view
-- One-click copy for AI output
+---
 
-## Tech Stack
+## ✨ Features
 
-- Frontend: React, CSS
-- Backend: Node.js, Express
-- AI: Hosted LLM via OpenRouter (no local install)
-- Storage: Browser `localStorage` (history)
+- **🧠 Smart Prompt Improver:** Automatically restructures raw text into a professional `Role + Task + Constraints + Format` framework.
+- **🔍 Real-time Analysis:** Uses AI to identify missing clarity, context, or quality boundaries, providing a "Quality Score" and suggestions.
+- **📚 Template Library:** Instant access to curated prompt templates for Coding, Business, Creative Writing, and Resume building.
+- **🔄 Side-by-Side Comparison:** Compare "Before" vs "After" prompts to see exactly how your input was refined.
+- **📜 History Management:** Keep track of your last 10 refined prompts (stored locally via `localStorage`).
 
-## File Structure
+---
 
-```text
-promptcraft-ai/
-  client/
-    src/
-      components/
-        ActionButtons.js
-        Compare.js
-        Header.js
-        History.js
-        InputBox.js
-        Output.js
-        Templates.js
-      data/
-        templates.js
-      App.js
-      api.js
-      index.css
-      index.js
-    package.json
-  server/
-    routes/
-      prompt.js
-    .env.example
-    index.js
-    package.json
-  package.json
-  README.md
-```
+## 📸 Screenshots
 
-## Setup Instructions
+### AI Prompt Analysis
+![Prompt Analysis](screenshots/analysis.png)
 
-1. Install dependencies in all projects:
+---
 
-```bash
-npm install
-npm install --prefix server
-npm install --prefix client
-```
+## 🛠️ Tech Stack
 
-2. Configure environment:
+- **Frontend:** React, Vanilla CSS (Modern glassmorphism & dark mode UI)
+- **Backend:** Node.js, Express
+- **AI Integration:** Hosted LLM via OpenRouter API
+- **State Management:** React Hooks & LocalStorage
 
-- Copy `server/.env.example` to `server/.env`
-- Configure OpenRouter:
+---
 
-```env
-OPENROUTER_BASE_URL=https://openrouter.ai/api/v1
-OPENROUTER_MODEL=meta-llama/llama-3.1-8b-instruct:free
-OPENROUTER_API_KEY=your_openrouter_api_key
-PORT=5000
-```
+## 🚀 Getting Started
 
-3. Run frontend + backend together:
+### Prerequisites
+- Node.js (v16+)
+- NPM or Yarn
 
-```bash
-npm run dev
-```
+### Installation
 
-4. Open app:
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Srinidhi262005/promptcraft-ai.git
+   ```
 
-- [http://localhost:3000](http://localhost:3000)
+2. **Install Dependencies:**
+   ```bash
+   # Root
+   npm install
 
-## API Endpoints
+   # Server
+   npm install --prefix server
 
-- `POST /improve-prompt`
-  - Body: `{ "prompt": "your raw prompt" }`
-  - Returns: `{ "improved": "structured prompt" }`
+   # Client
+   npm install --prefix client
+   ```
 
-- `POST /analyze-prompt`
-  - Body: `{ "prompt": "your raw prompt" }`
-  - Returns: `{ "analysis": "feedback text" }`
+3. **Environment Setup:**
+   Create a `.env` file in the `server` directory using `.env.example`:
+   ```env
+   OPENROUTER_API_KEY=your_key_here
+   PORT=5000
+   ```
 
-## Deployment Guidance
+4. **Run Locally:**
+   ```bash
+   npm run dev
+   ```
+   Access the app at `http://localhost:3000`
 
-### Frontend
+---
 
-- Deploy `client` to Vercel or Netlify.
-- Set `REACT_APP_API_URL` to your deployed backend URL (for production).
+## 🤝 Contributing
 
-### Backend
+Contributions are welcome! Feel free to open an issue or submit a pull request for improvements.
 
-- Deploy `server` to Render, Railway, or Fly.io.
-- Set env vars:
-  - `OPENROUTER_BASE_URL`
-  - `OPENROUTER_MODEL`
-  - `OPENROUTER_API_KEY`
-  - `PORT` (platform-provided if required)
+## 📄 License
 
-### Full Production Flow
+This project is licensed under the MIT License.
 
-Frontend -> `api.js` -> Backend Express API -> OpenRouter -> Response -> UI
+---
+
+*Built with ❤️ for Prompt Engineers.*
